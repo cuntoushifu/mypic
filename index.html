@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+	<!--字符编码-->
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<!--语言-->
+	<meta http-equiv="Content-Language" contect="zh-CN">
+	<!--移动端适配-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<!-- 避免IE使用兼容模式 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!--窗口设定-->
+	<meta http-equiv="Window-target" content="_top">
+	<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="HandheldFriendly" content="true">
+	<!-- 微软的老式浏览器 -->
+	<meta name="MobileOptimized" content="320">
+	<!-- windows phone 点击无高光 -->
+	<meta name="msapplication-tap-highlight" content="no">
+	<!--百度禁止转码-->
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<!--浏览器的兼容配置-->
+	<!--Microsoft Internet Explorer-->
+	<!--是否开启cleartype显示效果-->
+	<meta http-equiv="cleartype" content="on">
+	<meta name="skype_toolbar" content="skype_toolbar_parser_compatible">
+	<!--Pinned Site-->
+	<!-- IE 10 / Windows 8 -->
+	<meta name="msapplication-TileImage" content="pinned-tile-144.png">
+	<meta name="msapplication-TileColor" content="#009900">
+	<!--IE 11 / Windows 9.1-->
+	<meta name="msapplication-config" content="ieconfig.xml">
+	<!--Google Chrome-->
+	<!--禁止自动翻译-->
+	<meta name="google" value="notranslate">
+	<!--360浏览器-->
+	<!--极速模式-->
+	<meta name="renderer" content="webkit">
+	<!--QQ手机浏览器-->
+	<!--锁定屏幕在特定方向-->
+	<meta name="x5-orientation" content="portrait">
+	<!-- 全屏显示 -->
+	<meta name="x5-fullscreen" content="true">
+	<!-- 应用模式 -->
+	<meta name="x5-page-mode" content="app">
+	<!--UC浏览器-->
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- UC应用模式 -->
+	<meta name="browsermode" content="application">
+	<!-- 禁止自动探测手机/邮箱号码 -->
+	<meta name="format-detection" content="telphone=no, email=no">
+	<!-- Add to Home Screen添加到主屏 -->
+	<!-- 是否启用 WebApp 全屏模式 -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- 设置状态栏的背景颜色,只有在 “apple-mobile-web-app-capable” content=”yes” 时生效 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- 添加到主屏后的标题 -->
+	<meta name="apple-mobile-web-app-title" content="杨烨的相册">
+	<!--Google Android-->
+	<meta name="theme-color" content="#CCFFFF">
+	<!-- 添加到主屏 -->
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<title>杨烨-寸头师傅-相册-图床</title>
+	<meta name="keywords" content="杨烨,寸头师傅,图床,相册,yangye">
+	<!--描述-->
+	<meta name="description" content="杨烨的相册">
+	<!--作者 author-->
+	<meta name="author" content="杨烨,imissyou5201314@outlook.com">
+	<!--搜索引擎索引方式-->
+	<meta name="robots" content="all">
+	<!--logo-->
+	<link rel="shortcuticon" href="favicon.ico" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="email=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+
+	<link href="https://cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: 'montserrat', sans-serif;
+			box-sizing: border-box;
+		}
+
+		.gallery-section {
+			width: 100%;
+			padding: 60px 0;
+			background: #f1f1f1;
+		}
+
+		.inner-width {
+			width: 100%;
+			max-width: 1200px;
+			margin: auto;
+			padding: 0 20px;
+		}
+
+		.gallery-section h1 {
+			text-align: center;
+			text-transform: uppercase;
+			color: #333;
+		}
+
+		.border {
+			width: 180px;
+			height: 4px;
+			background: #333;
+			margin: 60px auto;
+		}
+
+		.gallery-section .gallery {
+			display: flex;
+			flex-wrap: wrap-reverse;
+			justify-content: center;
+		}
+
+		.gallery-section .image {
+			flex: 25%;
+			overflow: hidden;
+			cursor: pointer;
+		}
+
+		.gallery-section .image img {
+			width: 100%;
+			height: 100%;
+			transition: 0.4s;
+		}
+
+		.gallery-section .image:hover img {
+			transform: scale(1.4) rotate(15deg);
+		}
+
+		@media screen and (max-width: 960px) {
+			.gallery-section .image {
+				flex: 33.33%;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			.gallery-section .image {
+				flex: 50%;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			.gallery-section .image {
+				flex: 100%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="gallery-section">
+		<div class="inner-width">
+			<h1>杨烨的相册</h1>
+			<div class="border"></div>
+			<div class="gallery">
+				<a href='./show/1.png' class='image'><img src='./show/1.png' alt='' /></a>
+<a href='./show/10.png' class='image'><img src='./show/10.png' alt='' /></a>
+<a href='./show/1010926.jpg' class='image'><img src='./show/1010926.jpg' alt='' /></a>
+<a href='./show/104245.jpg' class='image'><img src='./show/104245.jpg' alt='' /></a>
+<a href='./show/1057947.jpg' class='image'><img src='./show/1057947.jpg' alt='' /></a>
+<a href='./show/11.png' class='image'><img src='./show/11.png' alt='' /></a>
+<a href='./show/12.png' class='image'><img src='./show/12.png' alt='' /></a>
+<a href='./show/13.png' class='image'><img src='./show/13.png' alt='' /></a>
+<a href='./show/134883.jpg' class='image'><img src='./show/134883.jpg' alt='' /></a>
+<a href='./show/14.png' class='image'><img src='./show/14.png' alt='' /></a>
+<a href='./show/15.png' class='image'><img src='./show/15.png' alt='' /></a>
+<a href='./show/16.png' class='image'><img src='./show/16.png' alt='' /></a>
+<a href='./show/164911.jpg' class='image'><img src='./show/164911.jpg' alt='' /></a>
+<a href='./show/164964.jpg' class='image'><img src='./show/164964.jpg' alt='' /></a>
+<a href='./show/165024.png' class='image'><img src='./show/165024.png' alt='' /></a>
+<a href='./show/165047.jpg' class='image'><img src='./show/165047.jpg' alt='' /></a>
+<a href='./show/17.png' class='image'><img src='./show/17.png' alt='' /></a>
+<a href='./show/18.png' class='image'><img src='./show/18.png' alt='' /></a>
+<a href='./show/19.png' class='image'><img src='./show/19.png' alt='' /></a>
+<a href='./show/2.png' class='image'><img src='./show/2.png' alt='' /></a>
+<a href='./show/20.png' class='image'><img src='./show/20.png' alt='' /></a>
+<a href='./show/21.png' class='image'><img src='./show/21.png' alt='' /></a>
+<a href='./show/218792.jpg' class='image'><img src='./show/218792.jpg' alt='' /></a>
+<a href='./show/22.png' class='image'><img src='./show/22.png' alt='' /></a>
+<a href='./show/23.png' class='image'><img src='./show/23.png' alt='' /></a>
+<a href='./show/24.png' class='image'><img src='./show/24.png' alt='' /></a>
+<a href='./show/25.png' class='image'><img src='./show/25.png' alt='' /></a>
+<a href='./show/26.png' class='image'><img src='./show/26.png' alt='' /></a>
+<a href='./show/267687.png' class='image'><img src='./show/267687.png' alt='' /></a>
+<a href='./show/27.png' class='image'><img src='./show/27.png' alt='' /></a>
+<a href='./show/28.png' class='image'><img src='./show/28.png' alt='' /></a>
+<a href='./show/29.png' class='image'><img src='./show/29.png' alt='' /></a>
+<a href='./show/290802.jpg' class='image'><img src='./show/290802.jpg' alt='' /></a>
+<a href='./show/3.png' class='image'><img src='./show/3.png' alt='' /></a>
+<a href='./show/30.png' class='image'><img src='./show/30.png' alt='' /></a>
+<a href='./show/31.png' class='image'><img src='./show/31.png' alt='' /></a>
+<a href='./show/319175.jpg' class='image'><img src='./show/319175.jpg' alt='' /></a>
+<a href='./show/32.png' class='image'><img src='./show/32.png' alt='' /></a>
+<a href='./show/33.png' class='image'><img src='./show/33.png' alt='' /></a>
+<a href='./show/34.png' class='image'><img src='./show/34.png' alt='' /></a>
+<a href='./show/35.png' class='image'><img src='./show/35.png' alt='' /></a>
+<a href='./show/36.png' class='image'><img src='./show/36.png' alt='' /></a>
+<a href='./show/37.png' class='image'><img src='./show/37.png' alt='' /></a>
+<a href='./show/38.png' class='image'><img src='./show/38.png' alt='' /></a>
+<a href='./show/39.png' class='image'><img src='./show/39.png' alt='' /></a>
+<a href='./show/4.png' class='image'><img src='./show/4.png' alt='' /></a>
+<a href='./show/40.png' class='image'><img src='./show/40.png' alt='' /></a>
+<a href='./show/401836.jpg' class='image'><img src='./show/401836.jpg' alt='' /></a>
+<a href='./show/402942.jpg' class='image'><img src='./show/402942.jpg' alt='' /></a>
+<a href='./show/402943.jpg' class='image'><img src='./show/402943.jpg' alt='' /></a>
+<a href='./show/41.png' class='image'><img src='./show/41.png' alt='' /></a>
+<a href='./show/42.png' class='image'><img src='./show/42.png' alt='' /></a>
+<a href='./show/43.png' class='image'><img src='./show/43.png' alt='' /></a>
+<a href='./show/44.png' class='image'><img src='./show/44.png' alt='' /></a>
+<a href='./show/45.png' class='image'><img src='./show/45.png' alt='' /></a>
+<a href='./show/46.png' class='image'><img src='./show/46.png' alt='' /></a>
+<a href='./show/47.png' class='image'><img src='./show/47.png' alt='' /></a>
+<a href='./show/48.png' class='image'><img src='./show/48.png' alt='' /></a>
+<a href='./show/49.png' class='image'><img src='./show/49.png' alt='' /></a>
+<a href='./show/499927.jpg' class='image'><img src='./show/499927.jpg' alt='' /></a>
+<a href='./show/5.png' class='image'><img src='./show/5.png' alt='' /></a>
+<a href='./show/50.png' class='image'><img src='./show/50.png' alt='' /></a>
+<a href='./show/501058.png' class='image'><img src='./show/501058.png' alt='' /></a>
+<a href='./show/51.png' class='image'><img src='./show/51.png' alt='' /></a>
+<a href='./show/519885.jpg' class='image'><img src='./show/519885.jpg' alt='' /></a>
+<a href='./show/52.png' class='image'><img src='./show/52.png' alt='' /></a>
+<a href='./show/53.png' class='image'><img src='./show/53.png' alt='' /></a>
+<a href='./show/57.png' class='image'><img src='./show/57.png' alt='' /></a>
+<a href='./show/572527.jpg' class='image'><img src='./show/572527.jpg' alt='' /></a>
+<a href='./show/58.png' class='image'><img src='./show/58.png' alt='' /></a>
+<a href='./show/59.png' class='image'><img src='./show/59.png' alt='' /></a>
+<a href='./show/595170.jpg' class='image'><img src='./show/595170.jpg' alt='' /></a>
+<a href='./show/6.png' class='image'><img src='./show/6.png' alt='' /></a>
+<a href='./show/60.png' class='image'><img src='./show/60.png' alt='' /></a>
+<a href='./show/605192.png' class='image'><img src='./show/605192.png' alt='' /></a>
+<a href='./show/605357.jpg' class='image'><img src='./show/605357.jpg' alt='' /></a>
+<a href='./show/606274.jpg' class='image'><img src='./show/606274.jpg' alt='' /></a>
+<a href='./show/606288.jpg' class='image'><img src='./show/606288.jpg' alt='' /></a>
+<a href='./show/606298.jpg' class='image'><img src='./show/606298.jpg' alt='' /></a>
+<a href='./show/61.png' class='image'><img src='./show/61.png' alt='' /></a>
+<a href='./show/617141.jpg' class='image'><img src='./show/617141.jpg' alt='' /></a>
+<a href='./show/62.png' class='image'><img src='./show/62.png' alt='' /></a>
+<a href='./show/63.png' class='image'><img src='./show/63.png' alt='' /></a>
+<a href='./show/64.png' class='image'><img src='./show/64.png' alt='' /></a>
+<a href='./show/643469.png' class='image'><img src='./show/643469.png' alt='' /></a>
+<a href='./show/643471.jpg' class='image'><img src='./show/643471.jpg' alt='' /></a>
+<a href='./show/643493.jpg' class='image'><img src='./show/643493.jpg' alt='' /></a>
+<a href='./show/643505.jpg' class='image'><img src='./show/643505.jpg' alt='' /></a>
+<a href='./show/643508.jpg' class='image'><img src='./show/643508.jpg' alt='' /></a>
+<a href='./show/643548.jpg' class='image'><img src='./show/643548.jpg' alt='' /></a>
+<a href='./show/649982.jpg' class='image'><img src='./show/649982.jpg' alt='' /></a>
+<a href='./show/649992.jpg' class='image'><img src='./show/649992.jpg' alt='' /></a>
+<a href='./show/649999.png' class='image'><img src='./show/649999.png' alt='' /></a>
+<a href='./show/65.png' class='image'><img src='./show/65.png' alt='' /></a>
+<a href='./show/650003.png' class='image'><img src='./show/650003.png' alt='' /></a>
+<a href='./show/650007.jpg' class='image'><img src='./show/650007.jpg' alt='' /></a>
+<a href='./show/656739.jpg' class='image'><img src='./show/656739.jpg' alt='' /></a>
+<a href='./show/656836.jpg' class='image'><img src='./show/656836.jpg' alt='' /></a>
+<a href='./show/66.png' class='image'><img src='./show/66.png' alt='' /></a>
+<a href='./show/67.png' class='image'><img src='./show/67.png' alt='' /></a>
+<a href='./show/670746.jpg' class='image'><img src='./show/670746.jpg' alt='' /></a>
+<a href='./show/674221.jpg' class='image'><img src='./show/674221.jpg' alt='' /></a>
+<a href='./show/68.png' class='image'><img src='./show/68.png' alt='' /></a>
+<a href='./show/69.png' class='image'><img src='./show/69.png' alt='' /></a>
+<a href='./show/7.jpg' class='image'><img src='./show/7.jpg' alt='' /></a>
+<a href='./show/70.png' class='image'><img src='./show/70.png' alt='' /></a>
+<a href='./show/705752.png' class='image'><img src='./show/705752.png' alt='' /></a>
+<a href='./show/71.png' class='image'><img src='./show/71.png' alt='' /></a>
+<a href='./show/711367.jpg' class='image'><img src='./show/711367.jpg' alt='' /></a>
+<a href='./show/714351.png' class='image'><img src='./show/714351.png' alt='' /></a>
+<a href='./show/72.png' class='image'><img src='./show/72.png' alt='' /></a>
+<a href='./show/722475.png' class='image'><img src='./show/722475.png' alt='' /></a>
+<a href='./show/728156.png' class='image'><img src='./show/728156.png' alt='' /></a>
+<a href='./show/728187.png' class='image'><img src='./show/728187.png' alt='' /></a>
+<a href='./show/728225.png' class='image'><img src='./show/728225.png' alt='' /></a>
+<a href='./show/738089.png' class='image'><img src='./show/738089.png' alt='' /></a>
+<a href='./show/739436.jpg' class='image'><img src='./show/739436.jpg' alt='' /></a>
+<a href='./show/739448.png' class='image'><img src='./show/739448.png' alt='' /></a>
+<a href='./show/739455.png' class='image'><img src='./show/739455.png' alt='' /></a>
+<a href='./show/742641.jpg' class='image'><img src='./show/742641.jpg' alt='' /></a>
+<a href='./show/742644.png' class='image'><img src='./show/742644.png' alt='' /></a>
+<a href='./show/769821.jpg' class='image'><img src='./show/769821.jpg' alt='' /></a>
+<a href='./show/769827.jpg' class='image'><img src='./show/769827.jpg' alt='' /></a>
+<a href='./show/788437.jpg' class='image'><img src='./show/788437.jpg' alt='' /></a>
+<a href='./show/789470.jpg' class='image'><img src='./show/789470.jpg' alt='' /></a>
+<a href='./show/8.png' class='image'><img src='./show/8.png' alt='' /></a>
+<a href='./show/807009.png' class='image'><img src='./show/807009.png' alt='' /></a>
+<a href='./show/807012.png' class='image'><img src='./show/807012.png' alt='' /></a>
+<a href='./show/807242.png' class='image'><img src='./show/807242.png' alt='' /></a>
+<a href='./show/811068.png' class='image'><img src='./show/811068.png' alt='' /></a>
+<a href='./show/857832.jpg' class='image'><img src='./show/857832.jpg' alt='' /></a>
+<a href='./show/863444.jpg' class='image'><img src='./show/863444.jpg' alt='' /></a>
+<a href='./show/863891.jpg' class='image'><img src='./show/863891.jpg' alt='' /></a>
+<a href='./show/871798.jpg' class='image'><img src='./show/871798.jpg' alt='' /></a>
+<a href='./show/872837.jpg' class='image'><img src='./show/872837.jpg' alt='' /></a>
+<a href='./show/9.png' class='image'><img src='./show/9.png' alt='' /></a>
+<a href='./show/904018.png' class='image'><img src='./show/904018.png' alt='' /></a>
+<a href='./show/904884.jpg' class='image'><img src='./show/904884.jpg' alt='' /></a>
+<a href='./show/932950.jpg' class='image'><img src='./show/932950.jpg' alt='' /></a>
+<a href='./show/932951.jpg' class='image'><img src='./show/932951.jpg' alt='' /></a>
+<a href='./show/932952.jpg' class='image'><img src='./show/932952.jpg' alt='' /></a>
+<a href='./show/979716.jpg' class='image'><img src='./show/979716.jpg' alt='' /></a>
+
+
+			</div>
+		</div>
+	</div>
+	<script>
+		$('.gallery').magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			gallery: {
+				enabled: true
+			}
+		})
+	</script>
+</body>
+
+</html>
